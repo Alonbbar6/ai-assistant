@@ -1,0 +1,28 @@
+# macOS metadata
+._*
+.DS_Store
+
+# Secrets — never commit these
+.env
+local.env
+env.local
+credentials/
+*.json.secret
+
+# Generated data
+data/
+__pycache__/
+*.py[cod]
+*.pyo
+.DS_Store
+
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Streamlit
+.streamlit/
+
+# Whisper model cache
+*.pt
