@@ -23,7 +23,7 @@ Built as a portfolio project to demonstrate LLM API integration, RAG, OAuth2, an
 ## Tech Stack
 
 - **LLM** — [Anthropic Claude](https://anthropic.com) via tool-use API
-- **RAG** — ChromaDB vector store + sentence-transformers embeddings
+- **RAG** — ChromaDB vector store with its built-in ONNX embeddings (all-MiniLM-L6-v2)
 - **Google APIs** — Calendar + Gmail via OAuth2
 - **Voice** — OpenAI Whisper (local STT) + pyttsx3 (TTS)
 - **UI** — Streamlit
@@ -48,6 +48,17 @@ ui/
 ```
 
 ## Setup
+
+### 0. System prerequisites (for voice mode)
+
+`setup.sh` installs the voice dependencies, which need two native libraries present first, or the install/runtime will fail:
+
+- **PortAudio** — required to build `PyAudio` for microphone capture
+  (`brew install portaudio` on macOS, `sudo apt install portaudio19-dev` on Debian/Ubuntu)
+- **ffmpeg** — Whisper uses it at runtime to decode recorded audio
+  (`brew install ffmpeg`, `sudo apt install ffmpeg`)
+
+Note: installing the requirements also pulls in PyTorch (a dependency of `openai-whisper`), which is a large download.
 
 ### 1. Install dependencies
 
