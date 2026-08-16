@@ -35,7 +35,7 @@ def get_input(voice_mode: bool = False) -> str:
     return Prompt.ask("[bold green]You[/bold green]")
 
 
-def run_cli(voice_output: bool = False):
+def run_cli(voice_output: bool = False, voice_input: bool = False):
     from core.agent import PersonalAssistant
     from rag.document_store import index_document, list_indexed_documents
 
@@ -44,7 +44,7 @@ def run_cli(voice_output: bool = False):
 
     while True:
         try:
-            user_input = get_input()
+            user_input = get_input(voice_mode=voice_input)
         except (KeyboardInterrupt, EOFError):
             console.print("\n[dim]Goodbye![/dim]")
             break

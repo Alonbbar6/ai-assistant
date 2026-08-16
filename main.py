@@ -29,7 +29,8 @@ def main():
     check_env()
 
     from ui.cli import run_cli
-    run_cli(voice_output=args.voice)
+    # --voice: voice input + output; --voice-in: voice input only.
+    run_cli(voice_input=args.voice or args.voice_in, voice_output=args.voice)
 
 
 if __name__ == "__main__":
